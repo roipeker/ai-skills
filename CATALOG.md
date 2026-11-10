@@ -4,7 +4,10 @@
 | --- | --- | --- | --- |
 | [unslop](skills/unslop/SKILL.md) | Remove AI writing patterns without losing meaning | All user-facing prose | Default |
 | [technical-writing](skills/technical-writing/SKILL.md) | Precise engineer-facing docs, references and guides | Documentation, READMEs, RFCs, PR bodies | Automatic for docs |
-| [grill-me](skills/grill-me/SKILL.md) | Uncover decisions with one question per round and recommendations | "grill me", "stress-test this idea" | Explicit |
+| [grill-me](skills/grill-me/SKILL.md) | Entry point for interactive requirements discovery | "grill me", "stress-test this idea" | Explicit |
+| [grilling](skills/grilling/SKILL.md) | Decision-tree interview with researched facts and one question per round | "grilling", called by grill-me | Explicit |
+| [grill-with-docs](skills/grill-with-docs/SKILL.md) | Combine discovery with project-local terminology and decision records | "grill with docs", codebase-backed discovery | Explicit |
+| [domain-modeling](skills/domain-modeling/SKILL.md) | Define project vocabulary and record consequential architecture decisions | Glossary, ADR, domain ambiguity | Task-triggered |
 | [sharpen](skills/sharpen/SKILL.md) | Make a task deeper, not larger; rewrite a better prompt | "sharpen this", "improve the brief" | Explicit |
 | [architect](skills/architect/SKILL.md) | Ground, compare structural designs, sketch API before implementation | Nontrivial design, architecture, module boundaries | Task-triggered |
 | [benchmark-checklist](skills/benchmark-checklist/SKILL.md) | Check whether speedup measurements are valid and relevant | Benchmark, speedup, performance comparison | Task-triggered |
