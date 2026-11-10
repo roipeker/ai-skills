@@ -17,7 +17,7 @@ Read [AGENTS.md](AGENTS.md) first. Select a skill from [CATALOG.md](CATALOG.md),
 - **Cursor:** use `.cursor/rules/ai-skills.mdc` and expose `skills/` through your workspace or Cursor's supported skill directory.
 - **ChatGPT:** provide this GitHub repository in the conversation and request the relevant skill. With GitHub access, ChatGPT can fetch the files. GitHub files are **not automatically injected into every new ChatGPT conversation**. A memory preference is not a full replacement for loading the actual skill.
 
-See [docs/harnesses.md](docs/harnesses.md) for specific guidance and limitations.
+See [docs/harnesses.md](docs/harnesses.md) for specific guidance and limitations. For ChatGPT, follow [setup and smoke tests](docs/chatgpt-setup.md). [Foundation checks](docs/foundation-checks.md) separate verified repository reads from untested new-chat behavior.
 
 ## Maintenance
 
