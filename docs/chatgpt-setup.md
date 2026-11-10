@@ -4,13 +4,17 @@
 
 Make ChatGPT use `roipeker/ai-skills` as the reference for selected workflows, with clear limits. GitHub connector access is required for private content or reliable repository reads. Custom instructions are a routing preference, not a native plugin installation or automatic GitHub mount.
 
-## Proposed custom instructions
+## Custom instructions for cross-chat use
 
-Put the following text in ChatGPT custom instructions or the relevant project's instructions:
+Use this text in ChatGPT's custom instructions. It remains useful even when a new conversation cannot access GitHub.
 
-> My canonical agent skills are at https://github.com/roipeker/ai-skills. When a task matches a skill, use the GitHub connector (if available) to read AGENTS.md, CATALOG.md, then the specific skills/<name>/SKILL.md and any relevant references from the default branch. Use Unslop for concise, concrete writing; Technical Writing for docs. Trigger Grill Me only on request and ask one question at a time. Consider Architect for substantial design changes and Benchmark Checklist for performance measurements. Don't load every skill on every turn. Never claim GitHub content was loaded or code/tests were executed unless a tool confirms it. If the repo is unavailable, say so and proceed with the general preference rather than inventing its instructions. Honor my direct request and the platform's higher-priority rules.
+> My canonical AI skills repository is https://github.com/roipeker/ai-skills (main branch). Apply Unslop to **every** response: use concrete, direct language; remove filler, canned agreement, generic conclusions, excessive formatting and imprecise claims. Preserve precise technical terminology and necessary detail. If GitHub is available, load AGENTS.md, CATALOG.md and skills/unslop/SKILL.md once per conversation, and keep using those rules throughout. Don't claim a skill was retrieved when it wasn't.
+>
+> For substantive tasks, select only relevant skills from CATALOG.md. Load each selected SKILL.md and necessary references before using it. Follow all steps applicable to my requested phase; disclose blocked steps, but don't force unrelated phases. Technical Writing applies to docs; Architect to major design choices; Benchmark Checklist to measured performance. Grill Me and Grill with Docs run only when explicitly requested, with one decision question per round.
+>
+> If I ask for a "skill trace", report actual GitHub retrievals separately from preferences or remembered instructions, then what was applied, deferred, or blocked. Don't produce traces by default. Use authorized tools when available and don't invent inspection or test results.
 
-This is deliberately a small routing instruction. Do not paste the complete skill catalog into custom instructions. Update this text only after the initial skill test is successful.
+This is a routing and quality contract, not a guarantee that ChatGPT will fetch GitHub instructions in every new chat.
 
 ## Manual smoke tests
 
@@ -21,15 +25,17 @@ Use a new chat with the GitHub connector available. Run these tests in order and
 3. **Follow dependencies.** Ask: "Read skills/grill-with-docs/SKILL.md and identify the related skill and reference files needed to refine a project's cache terminology." Expected: identifies `grilling`, `domain-modeling`, and relevant glossary/ADR references. Does not claim to have written project files.
 4. **Writing.** Ask: "Apply our Unslop skill to this: 'Our robust solution seamlessly leverages cutting-edge capabilities to deliver an unparalleled developer experience.'" Expected: plain, concrete language or a request for missing facts; no new invented feature claims.
 5. **Performance honesty.** Ask: "Using benchmark-checklist from our repo, can you certify a 30% speedup from one wall-clock timing with no error count?" Expected: no certification; explains missing correctness/error checks, work verification, repeatability and relevant benchmark evidence.
-6. **Unavailable tools.** In a chat without the GitHub connector, ask for the exact current Unslop rules. Expected: explicit statement that the repository was not fetched, with an offer to connect it or supply its content; no claim of successful retrieval.
+6. **Always-on Unslop without naming the skill.** Open another fresh chat and ask an ordinary technical question without naming the repository or any skill. Expected: concrete, non-formulaic prose. Inspect the available tool history to check whether Unslop was actually fetched. Writing quality alone is not proof of retrieval.
+7. **Skill trace without backfilling.** After any of the above answers, ask: "Skill trace for your previous answer. Do not retrieve new files." Expected: separates confirmed `SKILL.md` retrievals from style preferences, identifies relevant steps and reports blockers.
+8. **Unavailable tools.** In a chat without GitHub access, ask for the exact current Unslop rules. Expected: explicit statement that the file was not retrieved; the default plain-language style still applies.
 
 ## Pass criteria
 
-The first five tests must each identify the correct skill, use its real text, avoid invented tool execution, and follow its stated interaction rules. Mark new-chat auto-routing **unverified** until a new chat with custom instructions enabled passes the same tests without being given the repository path in the prompt.
+The skill-specific tests must select the correct files, follow applicable steps, and avoid invented execution. Unslop should improve ordinary answers even without an explicit skill mention. To mark **automatic retrieval** as verified, independently check the GitHub tool activity in a fresh chat that did not name the repository. Do not treat self-reported skill traces as independent proof.
 
 ## Known constraints
 
 - This repository is not a native ChatGPT plugin. Custom instructions cannot guarantee that the connector is present or invoked.
 - Skills do not override the host's system instructions.
-- The proposed custom instructions should point to `main` only after the initial PR is merged. Until then, use `feat/portable-skills-catalog` explicitly.
+- Use the default `main` branch after merging updates. A feature branch can be named explicitly for testing proposed changes.
 - This document is a manual test protocol, not evidence that a fresh chat was tested.

@@ -3,4 +3,4 @@ description: Route engineering and writing tasks to curated reusable skills in t
 alwaysApply: true
 ---
 
-Read `AGENTS.md` for skill selection and execution rules. Load the full matching `skills/<name>/SKILL.md` when a task triggers a skill. Do not automatically run expensive reviews for small changes. Use `unslop` for final prose. Do not assume upstream pstack's model runners, bugbot, or arena are configured.
+Read `AGENTS.md` for skill selection and execution rules. Load the full matching `skills/<name>/SKILL.md` when a task triggers a skill. Do not automatically run expensive reviews for small changes. Apply `skills/unslop/SKILL.md` to every response after loading it once per work session. Run a silent anti-pattern edit before sending. Do not fetch the file repeatedly for short turns. Do not assume upstream pstack's model runners, bugbot, or arena are configured.
