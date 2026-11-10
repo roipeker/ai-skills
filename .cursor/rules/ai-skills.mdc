@@ -1,0 +1,6 @@
+---
+description: Route engineering and writing tasks to curated reusable skills in this repository.
+alwaysApply: true
+---
+
+Read `AGENTS.md` for skill selection and execution rules. Load the full matching `skills/<name>/SKILL.md` when a task triggers a skill. Do not automatically run expensive reviews for small changes. Use `unslop` for final prose. Do not assume upstream pstack's model runners, bugbot, or arena are configured.
