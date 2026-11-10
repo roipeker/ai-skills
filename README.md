@@ -8,7 +8,7 @@ Read [AGENTS.md](AGENTS.md) first. Select a skill from [CATALOG.md](CATALOG.md),
 
 | Automatic defaults | Explicit or task-triggered |
 | --- | --- |
-| `unslop` for final prose; `technical-writing` for documentation | `grill-me`, `sharpen`, `architect`, `benchmark-checklist`, `blast-radius`, `interrogate`, `why`, `correct` |
+| `unslop` for final prose; `technical-writing` for documentation | `grill-me`, `grilling`, `grill-with-docs`, `domain-modeling`, `sharpen`, `architect`, `benchmark-checklist`, `blast-radius`, `interrogate`, `why`, `correct` |
 
 ## Harness installation
 
@@ -21,6 +21,6 @@ See [docs/harnesses.md](docs/harnesses.md) for specific guidance and limitations
 
 ## Maintenance
 
-Read [SOURCES.md](SOURCES.md) before updating a vendored or adapted skill. `unslop`, `sharpen`, and `benchmark-checklist` are upstream copies. Other skills are portable adaptations and must be reviewed when the upstream changes. No automatic upstream syncing or pin enforcement is implied.
+Read [SOURCES.md](SOURCES.md) before updating a vendored or adapted skill. `unslop`, `sharpen`, and `benchmark-checklist` are upstream copies. Other skills, including grilling with docs, are portable adaptations and must be reviewed when the upstream changes. No automatic upstream syncing or pin enforcement is implied.
 
-Licensed upstream material retains its license under [licenses/pstack-MIT.txt](licenses/pstack-MIT.txt). Contributions and original adaptations must respect upstream attribution.
+Licensed upstream material retains its license under [licenses/pstack-MIT.txt](licenses/pstack-MIT.txt) and [licenses/matt-pocock-MIT.txt](licenses/matt-pocock-MIT.txt). Contributions and original adaptations must respect upstream attribution.
