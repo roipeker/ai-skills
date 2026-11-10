@@ -13,9 +13,12 @@ The initial curation was made on 2026-11-10.
 | interrogate | https://github.com/cursor/plugins/blob/main/pstack/skills/interrogate/SKILL.md | Portable adaptation; no simulated subagents |
 | why | https://github.com/cursor/plugins/blob/main/pstack/skills/why/SKILL.md | Portable adaptation |
 | correct | https://github.com/cursor/plugins/blob/main/pstack/skills/correct/SKILL.md | Portable adaptation |
-| grill-me | https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md | Portable adaptation; one question per round by user preference |
+| grill-me | https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md | Portable entry-point wrapper |
+| grilling | https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md | Portable adaptation; one question per round by user preference |
+| grill-with-docs | https://github.com/mattpocock/skills/blob/main/skills/engineering/grill-with-docs/SKILL.md | Portable composition of grilling and domain-modeling |
+| domain-modeling | https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md | Portable adaptation with glossary and ADR format references |
 
-pstack is MIT licensed by Lauren Tan. See `licenses/pstack-MIT.txt`. The original `grill-me` wrapper in mattpocock/skills dispatches to `grilling`; the adapted skill here captures the procedure without requiring a native Skill tool.
+pstack is MIT licensed by Lauren Tan. Matt Pocock's skills are MIT licensed by Matt Pocock. See `licenses/pstack-MIT.txt` and `licenses/matt-pocock-MIT.txt`. Portable entry points dispatch through relative skill paths without requiring a native Skill tool.
 
 ## Update procedure
 
